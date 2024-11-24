@@ -1926,7 +1926,10 @@ function createChildReconciler(
     return deleteRemainingChildren(returnFiber, currentFirstChild);
   }
 
-  function reconcileChildFibers(
+//2. React compares each node in the new tree with the old tree.
+// Determines which nodes need to be added, updated, or removed.
+// A Fiber tree with work tags (add, update, delete).
+function reconcileChildFibers(
     returnFiber: Fiber,
     currentFirstChild: Fiber | null,
     newChild: any,

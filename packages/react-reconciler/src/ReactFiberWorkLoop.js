@@ -2680,6 +2680,19 @@ function workLoopConcurrent() {
   }
 }
 
+/* 
+1. React's codebase doesn’t explain the why behind naming choices or architectural decisions. Most comments focus on what a function does, not the rationale behind its design.
+It does not call preformFiberNode
+The function doesn’t just “process a Fiber node.” It performs a unit of work that involves multiple tasks:
+
+- Building the tree: Processing the current Fiber.
+- Reconciling children: Adding new children or reusing old ones.
+- Preparing side effects: Scheduling updates, if necessary.
+
+Function means: Everything React needs to do for the current node
+// The Fiber tree ???
+//currentFiber ? that is current render on screen
+*/
 function performUnitOfWork(unitOfWork: Fiber): void {
   // The current, flushed, state of this fiber is the alternate. Ideally
   // nothing should rely on this, but relying on it here means that we don't

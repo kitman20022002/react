@@ -336,7 +336,10 @@ function insertOrAppendPlacementNode(
     }
   }
 }
-
+//4. List of changes from the render phase.
+//React commits changes to the DOM.
+//Invokes lifecycle methods like componentDidMount or runs useEffect cleanup.
+//DOM is updated with the computed changes.
 function commitPlacement(finishedWork: Fiber): void {
   if (!supportsMutation) {
     return;

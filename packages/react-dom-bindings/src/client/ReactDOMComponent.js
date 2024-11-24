@@ -1395,6 +1395,8 @@ export function setInitialProperties(
   }
 }
 
+//6. updateDOMProperties
+//DOM container and React elements.
 export function updateProperties(
   domElement: Element,
   tag: string,
